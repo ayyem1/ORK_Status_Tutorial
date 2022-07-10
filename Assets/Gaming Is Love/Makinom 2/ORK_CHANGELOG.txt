@@ -1,0 +1,63 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ORK Framework 3.1.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+New:
+- Player Controls: Button: 'Use 2-Way Speed' settings available. Optionally use either walk or run speed of the combatant, depending on the input being below a defined value. Doesn't scale the speed based on the input value.
+- Camera Controls: Top Down Border: 'Border Camera Edge' setting available. Optionally stop when the camera's edge reaches the border instead of the camera's position (center).
+- Animations: Mecanim: 'Auto Move Direction Parameters' settings available. Optionally forward the movement direction of the combatant to float parameters of the animator controller. The X-, Y- and Z-axis are set up separately (each can be enabled on it's own).
+- Inventory Settings: Drop Item Settings: 'Local Space' settings available in the 'Offset Settings'. Optionally use the offset in local space of the combatant dropping the item. By default enabled.
+- Inventory Settings: Drop Item Settings: 'Item Collector Settings' available. Define some settings of the 'Item Collector' component used by drop items.
+- Battle Range Templates: Grid Shape: Line Of Sight: 'Ignore Dead' settings available for allied and enemy combatant line of sight checks. Dead combatants can optionally not block the line of sight.
+- Combatants: General Settings: 'Object Variable Settings' available. Define default object variable settings for all combatants. Each combatant can optionally override the default settings.
+- Combatants: Portraits: 'Status Conditions' and 'Variable Conditions' available for portrait sets. Optionally use conditions to determine which portrait set is used, similar to conditional prefabs.
+- Combatants: Portraits: 'Use Random Portrait Set' setting available. Using a random portrait set is now optional - this'll ignore the status/variable conditions of portrait sets. By default enabled (previous behaviour).
+- Move AIs: 'Allow During Actions' setting available. Optionally allow using the move AI while the combatant is performing an action. Casting actions is still controlled by the cast time's 'Move While Casting' setting. By default disabled (i.e. previous behaviour, blocking move AI during action).
+- Move AIs: Group Settings: 'Use Leader Position' setting available When using 'Follow Leader'. Follows the leader's position instead of the in-range position (based on the follow range). By default disabled (change to the previous default behaviour).
+- Target Settings: 'Default Target Raycast' settings available. Define the default target raycast settings used by abilities/items using the 'None' target range (and using raycast targeting). Each ability/item can replace them with a custom setup.
+- Battle Grid Highlights: 'Selected Target' highlight settings available. Optionally use a separate highlight on the currently selected targets during target selections. Separate settings for player, ally and enemies available.
+- Quest Settings: 'Default Quest Status Icons' and 'Default Task Status Icons' settings available. Define default status icons for quests/tasks (e.g. unavailable, inactive, etc.). Each quest type, quest and quest task can override these icons.
+- Quests: Quest Status Icons: The 'Quest Status Icons' settings are now an information override setting. New quests will have them disabled (using the default icons), existing quests will automatically update their data based on your setup.
+- Quests: 'Task Status Icons' settings available. Optionally override the default task status icons defined in the quest general settings.
+- Quest Types: 'UI Settings' available. Optionally override the default 'Quest Status Icons', 'Task Status Icons', 'Quest Layout', 'Notifications' and 'Console Texts' for quests of a quest type. Each individual quest can still override these settings.
+- Status Effect Types: 'UI Settings' available. Optionally override the default 'Effect UI', 'Flying Texts' and 'Console Texts' for status effects of a status effect type. Each individual status effect can still override these settings.
+- Ability Types: 'UI Settings' available. Optionally override the default 'Shortcut UI, 'Number Format', 'Battle Info Text', 'Notifications' and 'Console Texts' for abilities of an ability type. Each individual ability can still override these settings.
+- Item Types: 'Item UI Settings' available. Optionally override the default 'Shortcut UI', 'Number Format', 'Battle Info Text', 'Notifications' and 'Console Texts' for all items of an item type. Each individual item can still override these settings.
+- Item Types: 'Equipment UI Settings' available. Optionally override the default 'Shortcut UI', 'Number Format', 'Notifications' and 'Console Texts' for all equipment of an item type. Each individual equipment can still override these settings.
+- AI Types: 'AI Behaviour UI Settings' available. Optionally override the default 'Shortcut UI', 'Number Format', 'Notifications' and 'Console Texts' for all AI behaviours of an AI type. Each individual AI behaviour can still override these settings.
+- AI Types: 'AI Ruleset UI Settings' available. Optionally override the default 'Shortcut UI', 'Number Format', 'Notifications' and 'Console Texts' for all AI rulesets of an AI type. Each individual AI ruleset can still override these settings.
+- Crafting Types: 'UI Settings' available. Optionally override the default 'Shortcut UI', 'Number Format', 'Recipe Layout', 'Notifications' and 'Console Texts' for all crafting recipes of a crafting type. Each individual crafting recipe can still override these settings.
+- Research Types: 'UI Settings' available. Optionally override the default 'Notifications' and 'Console Texts' for all research trees of a research type. Each individual research treee can still override these settings.
+- Schematics, Battle AI: Change Move AI Stop Angle: 'Change Move AI Stop Angle' node available in the 'Move AI' nodes. Changes or resets the stop angle of a combatant's move AI. Supports float value selections, e.g. to use a random value. The stop angle is used by hunting and caution modes to optionally move to a specific position around the target.
+- Schematics: Remove From Inventory: 'Store Dropped' settings available when dropping items. Optionally store the game objects of dropped items in selected data.
+- Schematics: Drop Items: 'Store Dropped' settings available. Optionally store the game objects of dropped items in selected data.
+- Schematics: Check Battle Outcome: 'Check Battle Outcome' node available in 'Battle > Battle' nodes. Checks the outcome of the current battle and executes the corresponding next node (e.g. 'None', 'Victory', etc.).
+- Battle Grids: Inspector: 'Show Deployment Info' setting available. Highlights deployment cells with a green handle and a small label who can deploy (e.g. 'P' for player, 'E' for enemy or 'X' for all).
+- Battle Grids: Inspector: 'Shift Cell Type' setting available when using 'Paint' mode. Allows painting a different cell type while holding shift.
+- Battle Grids: Inspector: Holding 'CTRL' while in 'Paint' mode allows picking a cell's cell type for painting. Holding shift will pick the 'Shift Cell Type'.
+- Battle Grids: Inspector: The handles of cells will be colored differently while painting. If the cell already has the selected paint cell type (or shift type while holding shift), the handle will be blue, otherwise grey.
+
+Changes:
+- Abilities, Items: Target Selection: Raycast: The 'Use Target Raycast' setting has been replaced by a selection. Either use 'None' (no target raycast), 'Default' (the default target raycast settings defined in 'Battles > Target Settings') or 'Custom' (a custom raycast setup). Previous settings will be updated to 'Custom' when raycast targeting was used.
+- Combatants: Object Variables: The 'Object Variable Settings' are now an override setting for the default setup in the combatant general settings. Previous setup will be updated automatically to using custom settings if 'Use Object Variables' was enabled.
+- Move AIs: Following the group leader now defaults to moving to a position based on the follow range instead of the leader's position. To return to the previous behaviour, enable 'Use Leader Position' in the 'Group Settings' of the move AI.
+- Battle Components: The 'Chance' setting of combatants is now also used for 'All Groups/Combatants' or when not using 'Use Chance Selection'. A combatant/group will not be used if the chance check fails. Previously the 'Chance' setting was exclusively for the 'Use Chance Selection' mode.
+- Battle Grids: Improvements for grid painting in 2D mode, now showing the brush cursor when no collider was hit (e.g. due to walkable tilemap not having colliders).
+- Menu Screens: Group: The 'Group Content Layout' settings have been renamed to 'Content Layout (Non-Combatant)' to better state their purpose. They're only used for the empty and back buttons, as the combatant buttons are handled by the 'Combatant Choice Layout' settings of the menu part.
+
+Fixes:
+- Equipment: Random Status Value Bonuses: Fixed an issue where random status value bonuses where lost when equipping an equipment or loading a save game.
+- Editor: Filters: Fixed issues with some type filters (e.g. crafting recipes) when displaying filtered data lists.
+- Player Controls: Top Down 2D: Fixed an issue where moving diagonally allowed faster movement.
+- Camera Controls: Control Target transition: Fixed issues with target transitions not working correctly.
+- Battle Grids: Generation: Fixed an issue with separate block/empty cell raycasts hitting more than they should in 2D environments.
+- Battle Menus: Sub-Menus: Fixed a potential issue in 'Multi Mode' keeping one of the sub-menu boxes open when closing the battle menu.
+- HUD Shortcut Slot List Component: Fixed an issue where 'Defined' list type didn't show any slots.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ORK Framework 3.0.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+New:
+- Initial release. Everything shiny and new.

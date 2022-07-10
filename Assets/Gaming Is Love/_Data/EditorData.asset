@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 619879560, guid: bfb06eec059d3a345ac43927a4389437, type: 3}
+  m_Name: EditorData
+  m_EditorClassIdentifier: 
+  lastProject: {fileID: 11400000, guid: 764ba2493169a4b0e93234e6d51bbb56, type: 2}
+  editorHelpLanguageTexts: {fileID: 0}
+  section: 5
+  subSection: 1
+  tabIndex: 1
+  scrollY: 4541.9385
+  foldoutLimit: UI Settings
+  helpDrag: 220
+  subSectionDrag: 250
+  tabListDrag: 250
+  formulaDrag: 250
+  schematicDrag: 400
+  jumpListDrag: 250
+  dataSelectionSorting: 0
+  typeDataSelectionSorting: 0
+  createBackup: 1
+  updateSchematics: 1
+  schematicUpdateFolder: 
+  updatePrefabs: 0
+  updateScenes: 0
+  sceneUpdate: 
+  schematicAsset:
+  - {fileID: 11400000, guid: 56a61a37e10a74982bc2624a6bc747f4, type: 2}
+  variablesDefined: []
+  variablesEditor: []
+  variablesSchematic:
+  - ui
+  variablesScene: []
+  variablesPrefab: []
+  foldoutKey: []
+  foldoutState: 
